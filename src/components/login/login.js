@@ -4,12 +4,19 @@ import "./login.css"
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
-const Login = () =>{
+
+const Login = ({loginHandler}) =>{
     const [mobile, setmobile] = useState("");
     const [isError, setIsError] = useState(false);
 
     const [pass, setPass] = useState("");
     const [passErr, setErrPass] = useState(false);
+
+    const handlerLogin = (e) => {
+        e.preventDefault();
+        loginHandler(true);
+        
+    }
 
     return(
         <div className="card login-card mt-2 container">
@@ -52,6 +59,7 @@ const Login = () =>{
                 <button 
                     type="submit" 
                     className="btn btn-primary"
+                    onClick={handlerLogin}
                 >
                     Login
                 </button>
