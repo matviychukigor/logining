@@ -13,9 +13,8 @@ const Login = ({loginHandler}) =>{
     const [passErr, setErrPass] = useState(false);
 
     const handlerLogin = (e) => {
-        e.preventDefault();
+        /* e.preventDefault(); */
         loginHandler(true);
-        
     }
 
     return(

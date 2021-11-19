@@ -11,13 +11,19 @@ import Navbar from './components/nav/navigation';
 function App() {
   const [isLoggin, setLoggin] = useState(false)
 
+  console.log(isLoggin);
+
+  if(isLoggin){
+    return <Login loginHandler={setLoggin}/>
+  }
+
   return (
     <>
       <header>
         <nav className="navbar navbar-dark bg-primary">
           <div className="row col-12 d-flex justify-content-center text-white">
             <ul className="navbarItem">
-              <Navbar login={isLoggin}/>
+              <Navbar login={setLoggin}/>
             </ul>
           </div>
         </nav>
@@ -26,7 +32,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/other" element={<Other/>} />
-        <Route path="/login" element={<Login loginHandler={setLoggin} />} />
       </Routes>
     </>
   );
